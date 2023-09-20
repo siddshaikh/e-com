@@ -1,0 +1,41 @@
+:root{
+    --primary-color: #0d0c22;
+    --primary-font-family:"Mooli", sans-serif;
+}
+.flex {
+  display: flex;
+  align-items: center;
+}
+.nav {
+  justify-content: space-between;
+  font-family: "Mooli", sans-serif;
+  font-family: "Poppins", sans-serif;
+}
+.first {
+  margin: 0 20px;
+}
+.second{
+    margin: 0 20px;  
+}
+.main-logo {
+    font-size: 3rem;
+    cursor: pointer;
+    font-weight: 900;
+    text-shadow: 0 1px 11px var(--primary-color);
+}
+.nav-item {
+  cursor: pointer;
+  margin: 0 20px;
+}
+.products{
+    border-bottom: 2px solid var(--primary-color);
+}
+.signup-btn {
+  padding: 5px 25px;
+  background: var(--primary-color);
+  border-radius: 5px;
+  color: #ffff;
+  cursor: pointer;
+  box-shadow: 0 2px 3px 0 var(--primary-color);
+  font-family: var(--primary-font-family);
+}
