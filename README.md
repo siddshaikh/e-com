@@ -1,10 +1,10 @@
-# Getting Started with Create React App
+# E-com frontend project with react.js
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![image](https://github.com/siddshaikh/e-com/assets/123868376/8b89b9e4-f507-4374-a188-ee2db6b7a471)
 
-## Available Scripts
+## Available packages
 
-In the project directory, you can run:
+axios, react-icons
 
 ### `npm start`
 
