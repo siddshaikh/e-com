@@ -1,35 +1,29 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import "./Cart.css";
+import { MyContext } from "../../context/ProductContext";
 
 const Cart = () => {
-  const [cartItems, setCartItems] = useState([]);
-  const [totalPrice, setTotalPrice] = useState(0);
-
-  const addToCart = (product) => {
-    const updatedCart = [...cartItems, product];
-    setCartItems(updatedCart);
-    updateTotalPrice(updatedCart);
-  };
+  const { cart, addToCart, setCart } = useContext(MyContext);
 
   const removeFromCart = (productId) => {
-    const updatedCart = cartItems.filter((item) => item.id !== productId);
-    setCartItems(updatedCart);
-    updateTotalPrice(updatedCart);
+    const updatedCart = cart.filter((item) => item.id !== productId);
+    setCart(updatedCart);
   };
 
-  const updateTotalPrice = (cart) => {
-    const total = cart.reduce((acc, item) => acc + item.price, 0);
-    setTotalPrice(total);
+  const calculateTotalPrice = (cart) => {
+    return cart.reduce((total, item) => total + item.price, 0);
   };
+
+  const totalPrice = calculateTotalPrice(cart);
 
   return (
     <div className="cart-container">
       <h2>Shopping Cart</h2>
-      {cartItems.length === 0 ? (
+      {cart.length === 0 ? (
         <p>Your cart is empty.</p>
       ) : (
         <div className="cart-items">
-          {cartItems.map((item) => (
+          {cart.map((item) => (
             <div className="cart-item" key={item.id}>
               <img src={item.image} alt={item.name} />
               <div>

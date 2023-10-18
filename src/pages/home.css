@@ -34,6 +34,7 @@
   position: relative;
   font-size: larger;
   margin-right: 50px;
+  cursor: pointer;
 }
 .cart-count {
   background: green;

@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./products.css";
 import axios from "axios";
 import Pagination from "./Pagination/Pagination";
 import ProducDetails from "./product-details/ProducDetails";
+import { MyContext } from "../context/ProductContext";
+import { toast } from "react-toastify";
 
 const Products = () => {
   const [products, setProducts] = useState([]);
@@ -15,6 +17,7 @@ const Products = () => {
   // prduct details popup
   const [productsDetail, setProductsDetail] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState([]);
+  const { addToCart } = useContext(MyContext);
 
   const fetchProducts = async () => {
     try {
@@ -75,6 +78,13 @@ const Products = () => {
     setSelectedProduct(product);
     setProductsDetail((prev) => !prev);
   };
+
+  // Function to handle adding a product to the cart
+  const handleAddToCart = (product) => {
+    addToCart(product);
+    toast.success("Item added Successfuly!");
+  };
+
   return (
     <div>
       {productsDetail && (
@@ -208,7 +218,11 @@ const Products = () => {
                   <span>
                     <button className="buy-btn">Buy now</button>
                     <br />
-                    <button className="buy-btn" style={{ marginTop: "5px" }}>
+                    <button
+                      className="buy-btn"
+                      style={{ marginTop: "5px" }}
+                      onClick={() => handleAddToCart(product)}
+                    >
                       Add to Cart
                     </button>
                   </span>

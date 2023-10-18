@@ -1,12 +1,34 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./home.css";
 import Products from "../components/Products";
 import { AiOutlineShoppingCart } from "react-icons/ai";
+import { MyContext } from "../context/ProductContext";
+import Cart from "../components/Cart/Cart";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
+  const { cartOpen, setCartOpen, cart } = useContext(MyContext);
+  const navigate = useNavigate();
+
+  const handleCartOpen = () => {
+    setCartOpen(!cartOpen);
+  };
+  const handleLogout = () => {
+    navigate("/");
+  };
   return (
-    <div>
+    <div style={{ position: "relative" }}>
       {/* basic nav section */}
+      <div
+        style={{
+          position: "absolute",
+          marginLeft: "500px",
+          marginTop: "300px",
+          position: "fixed",
+        }}
+      >
+        {cartOpen && <Cart />}
+      </div>
       <div className="nav flex">
         {/* section first */}
         <div className="first flex">
@@ -15,11 +37,13 @@ const Home = () => {
         </div>
         {/* section second */}
         <div className="second flex">
-          <span className="cart-box">
+          <span className="cart-box" onClick={handleCartOpen}>
             <AiOutlineShoppingCart style={{ fontSize: "30px" }} />
-            <span className="cart-count">10</span>
+            <span className="cart-count">{cart.length}</span>
           </span>
-          <button className="signup-btn">Log Out</button>
+          <button className="signup-btn" onClick={handleLogout}>
+            Log Out
+          </button>
         </div>
       </div>
       {/* products and filter section */}
