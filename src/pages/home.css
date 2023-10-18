@@ -1,6 +1,6 @@
-:root{
-    --primary-color: #0d0c22;
-    --primary-font-family:"Mooli", sans-serif;
+:root {
+  --primary-color: #0d0c22;
+  --primary-font-family: "Mooli", sans-serif;
 }
 .flex {
   display: flex;
@@ -14,21 +14,39 @@
 .first {
   margin: 0 20px;
 }
-.second{
-    margin: 0 20px;  
+.second {
+  margin: 0 20px;
 }
 .main-logo {
-    font-size: 3rem;
-    cursor: pointer;
-    font-weight: 900;
-    text-shadow: 0 1px 11px var(--primary-color);
+  font-size: 3rem;
+  cursor: pointer;
+  font-weight: 900;
+  text-shadow: 0 1px 11px var(--primary-color);
 }
 .nav-item {
   cursor: pointer;
   margin: 0 20px;
 }
-.products{
-    border-bottom: 2px solid var(--primary-color);
+.products {
+  border-bottom: 2px solid var(--primary-color);
+}
+.cart-box {
+  position: relative;
+  font-size: larger;
+  margin-right: 50px;
+}
+.cart-count {
+  background: green;
+  color: white;
+  padding: 5px;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  line-height: 20px;
+  text-align: center;
+  position: absolute;
+  font-size: xx-small;
+  margin-bottom: 4px;
 }
 .signup-btn {
   padding: 5px 25px;

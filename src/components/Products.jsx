@@ -207,6 +207,10 @@ const Products = () => {
                   </span>
                   <span>
                     <button className="buy-btn">Buy now</button>
+                    <br />
+                    <button className="buy-btn" style={{ marginTop: "5px" }}>
+                      Add to Cart
+                    </button>
                   </span>
                 </div>
               </div>
